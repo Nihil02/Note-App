@@ -1,5 +1,6 @@
 import {Pool} from "pg";
 import dotenv from "dotenv";
+//Extracting the credentials from the .env file
 dotenv.config();
 
 const pool = new Pool({
