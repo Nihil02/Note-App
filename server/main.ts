@@ -38,8 +38,8 @@ app.get("/notes/:id", async (req, res) => {
 //Post a new note
 app.post("/notes", async (req, res) => {
   try {
-    const noteTitle = req.body.note_title;
-    const noteText = req.body.note_text;
+    const noteTitle = req.body.title;
+    const noteText = req.body.text;
 
     const newNote = await pool.query("CALL new_note ($1,$2);", [
       noteTitle,
