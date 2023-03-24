@@ -3,12 +3,15 @@ import AddNote from "./components/AddNote";
 
 function App() {
   return (
-    <div className="p-10">
-      <h1 className="text-center text-3xl">Note App</h1>
+    <>
+      <h1 className="text-center text-3xl m-10">Note App</h1>
+      <div className="flex flex-col items-center">
       <AddNote />
-      <hr />
-      <NoteList />
-    </div>
+      </div>
+      <div className="px-10 py-5">
+        <NoteList />
+      </div>
+    </>
   );
 }
 
