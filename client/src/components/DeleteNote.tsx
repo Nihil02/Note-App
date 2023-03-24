@@ -1,19 +1,15 @@
 import { FaTrash } from "react-icons/fa";
-import { useGetNotes, url } from "../hooks/useNotes";
+import { url } from "./../config";
 
-function DeleteNote(id : any) {
-  const [notes, setNotes] = useGetNotes();
-
+function DeleteNote(note_id : any) {
   //Delete a specific note
   const deleteNote = async () => {
     try {
-      const response = await fetch(url + "/" + id, {
+      console.log(url + "/" + note_id.id);
+      
+      const response = await fetch(url + "/" + note_id.id, {
         method: "DELETE",
       });
-
-      console.log(response);
-      
-      //setNotes(notes.filter(note => note.note_id !== id));
 
       window.location.reload();
     } catch (error) {
@@ -27,7 +23,6 @@ function DeleteNote(id : any) {
         onClick={() => {
           if (window.confirm("Delete note?")) {
             deleteNote();
-            console.log("Delete");
           }
         }}
         className="flex justify-center items-center w-8 h-8 rounded-md bg-red-400 hover:bg-red-500"

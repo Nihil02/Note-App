@@ -1,4 +1,4 @@
-import { useGetNotes, url } from "./../hooks/useNotes";
+import { useGetNotes } from "./../hooks/useNotes";
 import DeleteNote from "./DeleteNote";
 
 //Defines note structure
@@ -35,7 +35,7 @@ function NoteList() {
                 </td>
                 <td className="items-center justify-center">
                   {" "}
-                  <DeleteNote/>
+                  <DeleteNote id={note.note_id} />
                 </td>
               </tr>
             ))}
