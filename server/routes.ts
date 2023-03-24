@@ -65,8 +65,6 @@ router.delete("/notes/:id", async (req, res) => {
   try {
     const { id } = req.params;
 
-    console.log(req.params);
-
     const deleteNote = await pool.query("CALL delete_note ($1);", [Number(id)]);
 
     res.json(deleteNote);

@@ -19,9 +19,23 @@
   block w-full p-2.5 rounded-lg my-2;
 }
 
-.button {
+.btn {
   @apply inline-flex justify-center border border-transparent 
   bg-blue-100 text-sm font-medium text-blue-900 hover:bg-blue-200 
   focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2
-  rounded-md px-4 py-2  ;
+  rounded-md px-4 py-2;
+}
+
+.btn-danger {
+  @apply inline-flex justify-center border border-transparent 
+  text-sm font-medium text-gray-900 bg-red-400 hover:bg-red-500
+  focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2
+  rounded-md px-4 py-2;
+}
+
+.btn-sucess {
+  @apply inline-flex justify-center border border-transparent 
+  text-sm font-medium text-gray-900 bg-green-400 hover:bg-green-500
+  focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2
+  rounded-md px-4 py-2;
 }
