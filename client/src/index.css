@@ -20,22 +20,24 @@
 }
 
 .btn {
-  @apply inline-flex justify-center border border-transparent 
-  bg-blue-100 text-sm font-medium text-blue-900 hover:bg-blue-200 
-  focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2
+  @apply inline-flex justify-center border border-transparent text-sm font-medium  
+  focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2
   rounded-md px-4 py-2;
+}
+
+.btn-primary {
+  @apply btn bg-blue-100 text-blue-900 hover:bg-blue-200 focus-visible:ring-blue-500;
 }
 
 .btn-danger {
-  @apply inline-flex justify-center border border-transparent 
-  text-sm font-medium text-gray-900 bg-red-400 hover:bg-red-500
-  focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2
-  rounded-md px-4 py-2;
+  @apply btn text-gray-900 bg-red-400 hover:bg-red-500 focus-visible:ring-red-500;
 }
 
 .btn-sucess {
-  @apply inline-flex justify-center border border-transparent 
-  text-sm font-medium text-gray-900 bg-green-400 hover:bg-green-500
-  focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2
-  rounded-md px-4 py-2;
+  @apply btn text-gray-900 bg-green-400 hover:bg-green-500 focus-visible:ring-green-500;
+}
+
+.pill {
+  @apply flex justify-center rounded-full px-3 py-1 text-sm font-semibold 
+  text-gray-700 mr-2 mb-2 items-center w-16 h-8;
 }

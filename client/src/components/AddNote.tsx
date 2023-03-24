@@ -2,6 +2,13 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { url } from "./../config";
 
+//Defines note structure
+interface INotes {
+  note_id: number;
+  note_title: string;
+  note_text: string;
+}
+
 function AddNote() {
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
@@ -23,18 +30,22 @@ function AddNote() {
     }
   }
 
-  function closeModal() {setIsOpen(false);}
-  function openModal() {setIsOpen(true);}
+  function closeModal() {
+    setIsOpen(false);
+  }
+  function openModal() {
+    setIsOpen(true);
+  }
 
   return (
     <>
-        <button
-          type="button"
-          onClick={openModal}
-          className="btn focus-visible:ring-opacity-75 w-60"
-        >
-          Add
-        </button>
+      <button
+        type="button"
+        onClick={openModal}
+        className="btn-primary focus-visible:ring-opacity-75 w-60"
+      >
+        Add
+      </button>
 
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
@@ -97,10 +108,7 @@ function AddNote() {
                         required
                       />
                     </div>
-                    <button
-                      type="submit"
-                      className="btn"
-                    >
+                    <button type="submit" className="btn-primary">
                       Submit
                     </button>
                   </form>

@@ -33,7 +33,7 @@ function DeleteNote(note_id: any) {
     <>
       <button
         onClick={openModal}
-        className="flex justify-center items-center w-8 h-8 rounded-md bg-red-400 hover:bg-red-500"
+        className="pill bg-red-400 hover:bg-red-500"
       >
         <FaTrash size={20} color="white" />
       </button>
