@@ -70,7 +70,7 @@ app.delete("/notes/:id", async (req, res) => {
   try {
     const { id } = req.params;
 
-    const deleteNote = await pool.query("CALL delete_note ($1);", [id]);
+    const deleteNote = await pool.query("CALL delete_note ($1);", [Number(id)]);
 
     res.json(deleteNote);
   } catch (error) {
