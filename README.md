@@ -19,22 +19,21 @@ To start listening in port 5173 use `yarn start`.
 
 # Structure
 ```bash
-├── client					# All the code related to the client side of the application
-│	├── src 				# Front-end code
-│   │	├── components		# App components made with React
-│   │	├── App.tsx			# App component
-│   │	├── index.css		# Main css file
-│   │	├── main.tsx		# Main react file
-│   ├── index.html			# HTML index
-│   ├── postcss.config.cjs	# Postcss configuration (needed to use TailwindCSS)
-│   ├── tailwind.config.cjs	# Tailwind configuration
-│   ├── ts.config			# TypeScript configuration
-│   ├── vite.config.ts		# Vite configuration
-├── server					# All the code related to the server side of the application
-│   ├── database			# SQL scripts to create the database
-│   ├── .env				# dotenv file to configurate environment variable (needs to be created)
-│   ├── db.ts				# Database controller in TS
-│   ├── main.ts				# Where the magic happens
-│   ├── ts.config			# TypeScript configuration
-
+├── client                 # Code related to the client side of the application
+│	 ├── src                 # Front-end code
+│  │	 ├── components		     # App components made with React
+│  │	 ├── App.tsx			       # App component
+│  │	 ├── index.css		      # Main css file
+│  │	 ├── main.tsx		       # Main react file
+│  ├── index.html			       # HTML index
+│  ├── postcss.config.cjs	 # Postcss configuration (needed to use TailwindCSS)
+│  ├── tailwind.config.cjs	# Tailwind configuration
+│  ├── ts.config			        # TypeScript configuration
+│  ├── vite.config.ts		    # Vite configuration
+├── server					            # Code related to the server side of the application
+│  ├── database			         # SQL scripts to create the database
+│  ├── .env				            # dotenv file to configurate environment variable (needs to be created)
+│  ├── db.ts				           # Database controller in TS
+│  ├── main.ts				         # Where the magic happens
+│  ├── ts.config			        # TypeScript configuration
 ```
