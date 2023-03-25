@@ -51,8 +51,12 @@ router.post("/notes", async (req, res) => {
 router.put("/notes/:id", async (req, res) => {
   try {
     const { id } = req.params;
+    const noteTitle = req.body.title;
+    const noteText = req.body.text;
 
-    const changeNote = await pool.query("CALL change_note ($1);", [id]);
+    console.log(id, noteTitle, noteText);
+
+    const changeNote = await pool.query("CALL change_note ($1, $2, $3);", [id, noteTitle, noteText]);
 
     res.json(changeNote);
   } catch (error) {

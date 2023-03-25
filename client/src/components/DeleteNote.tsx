@@ -9,8 +9,6 @@ function DeleteNote(note_id: any) {
   //Delete a specific note
   const deleteNote = async () => {
     try {
-      console.log(url + "/" + note_id.id);
-
       const response = await fetch(url + "/" + note_id.id, {
         method: "DELETE",
       });

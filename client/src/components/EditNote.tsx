@@ -1,28 +1,31 @@
-import { Dialog, Transition } from "@headlessui/react";
+import { Transition, Dialog } from "@headlessui/react";
 import { Fragment, useState } from "react";
+import { FaPen } from "react-icons/fa";
+import { useGetNotes } from "../hooks/useNotes";
 import { url } from "./../config";
 
-function AddNote() {
+function EditNote(note_id: any) {
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
   let [isOpen, setIsOpen] = useState(false);
 
-  async function addNote(e: any) {
-    e.preventDefault();
+  //Edit a note
+  const updateNote = async () => {
     try {
       const body = { title, text };
-      const response = await fetch(url, {
-        method: "POST",
+
+      const response = await fetch(url + "/" + note_id.id, {
+        method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       });
-      
+
       closeModal();
       window.location.reload();
     } catch (error) {
       console.error(error);
     }
-  }
+  };
 
   function closeModal() {
     setIsOpen(false);
@@ -34,11 +37,10 @@ function AddNote() {
   return (
     <>
       <button
-        type="button"
         onClick={openModal}
-        className="group card"
+        className="pill bg-yellow-400 hover:bg-yellow-500"
       >
-        Add
+        <FaPen size={20} color="white" />
       </button>
 
       <Transition appear show={isOpen} as={Fragment}>
@@ -71,10 +73,10 @@ function AddNote() {
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"
                   >
-                    Add a New Note
+                    Edit a Note
                   </Dialog.Title>
 
-                  <form className="m-4" onSubmit={addNote}>
+                  <form className="m-4" onSubmit={updateNote}>
                     <div className="mb-6">
                       <label htmlFor="note_title">Note Title</label>
                       <input
@@ -116,4 +118,4 @@ function AddNote() {
   );
 }
 
-export default AddNote;
+export default EditNote;

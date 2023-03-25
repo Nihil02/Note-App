@@ -1,6 +1,7 @@
 import { useGetNotes } from "./../hooks/useNotes";
 import AddNote from "./AddNote";
 import DeleteNote from "./DeleteNote";
+import EditNote from "./EditNote";
 
 //Defines note structure
 interface INotes {
@@ -27,8 +28,8 @@ function NoteList() {
             <span className="inline-block">
               <DeleteNote id={note.note_id} />
             </span>
-            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-              Edit
+            <span className="inline-block">
+              <EditNote id={note.note_id} />
             </span>
           </div>
         </div>
