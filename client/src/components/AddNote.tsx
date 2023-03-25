@@ -42,7 +42,7 @@ function AddNote() {
       <button
         type="button"
         onClick={openModal}
-        className="btn-primary focus-visible:ring-opacity-75 w-60"
+        className="group card"
       >
         Add
       </button>

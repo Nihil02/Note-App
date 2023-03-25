@@ -1,4 +1,5 @@
 import { useGetNotes } from "./../hooks/useNotes";
+import AddNote from "./AddNote";
 import DeleteNote from "./DeleteNote";
 
 //Defines note structure
@@ -15,12 +16,14 @@ function NoteList() {
   const renderNotes = () => {
     return notes.map((note: INotes) => {
       return (
-        <div className="max-w-sm min-w-sm rounded overflow-hidden shadow-lg">
+        <div className="group card">
           <div className="px-6 py-4">
             <div className="font-bold text-xl mb-2">{note.note_title}</div>
-            <p className="text-gray-700 text-base">{note.note_text}</p>
+            <p className="text-gray-700 text-base overflow-hidden truncate">
+              {note.note_text}
+            </p>
           </div>
-          <div className="px-6 pt-4 pb-2">
+          <div className="flex flex-rows px-6 pt-4 pb-2 gap-x-10 justify-center">
             <span className="inline-block">
               <DeleteNote id={note.note_id} />
             </span>
@@ -35,7 +38,10 @@ function NoteList() {
 
   return (
     <>
-      <div className="flex">{renderNotes()}</div>
+      <div className="grid grid-cols-2 lg:grid-cols-3 xs:grid-cols-1 gap-y-10 gap-x-6 h-96">
+        <AddNote />
+        {renderNotes()}
+      </div>
     </>
   );
 }

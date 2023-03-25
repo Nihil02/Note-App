@@ -5,9 +5,6 @@ function App() {
   return (
     <>
       <h1 className="text-center text-3xl m-10">Note App</h1>
-      <div className="flex flex-col items-center">
-      <AddNote />
-      </div>
       <div className="px-10 py-5">
         <NoteList />
       </div>
