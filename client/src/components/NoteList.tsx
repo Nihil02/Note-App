@@ -2,6 +2,7 @@ import { useGetNotes } from "./../hooks/useNotes";
 import AddNote from "./AddNote";
 import DeleteNote from "./DeleteNote";
 import EditNote from "./EditNote";
+import ViewNote from "./ViewNote";
 
 //Defines note structure
 interface INotes {
@@ -26,10 +27,20 @@ function NoteList() {
           </div>
           <div className="flex flex-rows px-6 pt-4 pb-2 gap-x-10 justify-center">
             <span className="inline-block">
-              <DeleteNote id={note.note_id} />
+              <ViewNote
+                note_text={note.note_text}
+                note_title={note.note_title}
+              />
             </span>
             <span className="inline-block">
-              <EditNote id={note.note_id} />
+              <EditNote
+                note_id={note.note_id}
+                note_text={note.note_text}
+                note_title={note.note_title}
+              />
+            </span>
+            <span className="inline-block">
+              <DeleteNote id={note.note_id} />
             </span>
           </div>
         </div>

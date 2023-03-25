@@ -1,37 +1,15 @@
 import { Transition, Dialog } from "@headlessui/react";
 import { Fragment, useState } from "react";
-import { FaPen } from "react-icons/fa";
-import { url } from "./../config";
+import { FaEye } from "react-icons/fa";
 
 //Defines note structure
 interface INotes {
-  note_id: number;
   note_title: string;
   note_text: string;
 }
 
-function EditNote(props: INotes) {
-  const [title, setTitle] = useState(props.note_title);
-  const [text, setText] = useState(props.note_text);
+function ViewNote(props: INotes) {
   let [isOpen, setIsOpen] = useState(false);
-
-  //Edit a note
-  const updateNote = async () => {
-    try {
-      const body = { title, text };
-
-      const response = await fetch(url + "/" + props.note_id, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-      });
-
-      closeModal();
-      window.location.reload();
-    } catch (error) {
-      console.error(error);
-    }
-  };
 
   function closeModal() {
     setIsOpen(false);
@@ -44,9 +22,9 @@ function EditNote(props: INotes) {
     <>
       <button
         onClick={openModal}
-        className="pill bg-yellow-400 hover:bg-yellow-500"
+        className="pill bg-green-400 hover:bg-green-500"
       >
-        <FaPen size={20} color="white" />
+        <FaEye size={20} color="white" />
       </button>
 
       <Transition appear show={isOpen} as={Fragment}>
@@ -82,7 +60,7 @@ function EditNote(props: INotes) {
                     Edit a Note
                   </Dialog.Title>
 
-                  <form className="m-4" onSubmit={updateNote}>
+                  <div className="m-4">
                     <div className="mb-6">
                       <label htmlFor="note_title">Note Title</label>
                       <input
@@ -91,10 +69,8 @@ function EditNote(props: INotes) {
                         name="note_title"
                         maxLength={100}
                         className="note-text"
-                        value={title}
-                        placeholder="A magnificient title"
-                        onChange={(e) => setTitle(e.target.value)}
-                        required
+                        value={props.note_title}
+                        readOnly
                       />
                     </div>
                     <div className="mb-6">
@@ -104,16 +80,11 @@ function EditNote(props: INotes) {
                         name="note_text"
                         rows={3}
                         className="note-text"
-                        value={text}
-                        placeholder="Something something..."
-                        onChange={(e) => setText(e.target.value)}
-                        required
+                        value={props.note_text}
+                        readOnly
                       />
                     </div>
-                    <button type="submit" className="btn-primary">
-                      Submit
-                    </button>
-                  </form>
+                  </div>
                 </Dialog.Panel>
               </Transition.Child>
             </div>
@@ -124,4 +95,4 @@ function EditNote(props: INotes) {
   );
 }
 
-export default EditNote;
+export default ViewNote;
